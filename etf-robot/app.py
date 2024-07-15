@@ -10,6 +10,8 @@ from linebot.models import *
 
 import func
 
+import os
+
 app = Flask(__name__)
 
 # Channel Access Token
@@ -74,7 +76,7 @@ def handle_message(event):
         
 
 
-import os
+
 if __name__ == "__main__":
     print('work')
     port = int(os.environ.get('PORT', 5000))
