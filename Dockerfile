@@ -61,8 +61,8 @@ RUN pip3 -V && \
     pip3 install -r requirements.txt
 
 
-# 5000是我們服務所在的port
-EXPOSE 5000
+# 8080是我們服務所在的port
+EXPOSE 8080
 
 # 在系統中加入一個新system user 和 group，名稱皆為appuser
 RUN adduser --system --group --no-create-home appuser
