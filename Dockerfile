@@ -60,6 +60,7 @@ RUN pip3 install PyPI && \
 RUN pip3 -V && \
     pip3 install -r requirements.txt
 
+COPY ./etf-robot .
 
 # 8080是我們服務所在的port
 EXPOSE 8080
@@ -73,4 +74,4 @@ RUN chown appuser:appuser -R --verbose /app
 # 把container的 user 轉到appuser
 USER appuser
 # CMD代表command，當你啟動這個container時，會預設執行這個指令
-CMD ["python3","/app/etf-robot/app.py"]
+CMD ["python3","/app/app.py"]
