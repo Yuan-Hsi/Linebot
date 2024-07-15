@@ -109,7 +109,7 @@ def Stock_price(event):
         low = float(res.json()['data'][0].get('regularMarketDayLow').get('raw'))
         open_p = float(res.json()['data'][0].get('regularMarketOpen').get('raw'))
         close = float(res.json()['data'][0].get('regularMarketPreviousClose').get('raw'))
-        volum = float(res.json()['data'][0].get('volumeK').get('raw'))
+        volum = float(res.json()['data'][0].get('volumeK'))
         up_down = (price - close) / price
         up_down = str(round(up_down*100,2)) + '%'
 
