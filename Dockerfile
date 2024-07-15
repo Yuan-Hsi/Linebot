@@ -8,8 +8,7 @@
 #    │       └── index.html
 #    └── requirements.txt
 
-# Base image 是 python:3.8
-FROM python:3.8
+
 #FROM nvidia/cuda:10.1-cudnn7-runtime
 # FROM nvidia/cuda:11.0-runtime-ubuntu20.04
 
@@ -41,6 +40,8 @@ FROM python:3.8
 #     # update-alternatives --config python3 
 #     apt clean && rm -rf /var/lib/apt/lists/*
 
+# Base image 是 python:3.8
+FROM python:3.8
 
 RUN mkdir /app
 
@@ -73,5 +74,6 @@ RUN chown appuser:appuser -R --verbose /app
 
 # 把container的 user 轉到appuser
 USER appuser
+
 # CMD代表command，當你啟動這個container時，會預設執行這個指令
-CMD ["python3","/app/app.py"]
+CMD ["python3","app.py"]
