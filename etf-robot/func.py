@@ -104,12 +104,12 @@ def Stock_price(event):
         stock = event.message.text[3:7]
         url = 'https://tw.stock.yahoo.com/_td-stock/api/resource/StockServices.stockList;autoRefresh=1631158268949;fields=avgPrice%2Corderbook;symbols='+stock+'.TW?bkt=tw-qsp-exp-no4&device=desktop&ecma=modern&feature=ecmaModern%2CuseVersionSwitch%2CuseNewQuoteTabColor%2ChideMarketInfo&intl=tw&lang=zh-Hant-TW&partner=none&prid=1qd9j1pgjivr5&region=TW&site=finance&tz=Asia%2FTaipei&ver=1.2.1138&returnMeta=true'
         res = requests.get(url)
-        price = float(res.json()['data'][0].get('price'))
-        high = float(res.json()['data'][0].get('regularMarketDayHigh'))
-        low = float(res.json()['data'][0].get('regularMarketDayLow'))
-        open_p = float(res.json()['data'][0].get('regularMarketOpen'))
-        close = float(res.json()['data'][0].get('regularMarketPreviousClose'))
-        volum = float(res.json()['data'][0].get('volumeK'))
+        price = float(res.json()['data'][0].get('price').get('raw'))
+        high = float(res.json()['data'][0].get('regularMarketDayHigh').get('raw'))
+        low = float(res.json()['data'][0].get('regularMarketDayLow').get('raw'))
+        open_p = float(res.json()['data'][0].get('regularMarketOpen').get('raw'))
+        close = float(res.json()['data'][0].get('regularMarketPreviousClose').get('raw'))
+        volum = float(res.json()['data'][0].get('volumeK').get('raw'))
         up_down = (price - close) / price
         up_down = str(round(up_down*100,2)) + '%'
 
